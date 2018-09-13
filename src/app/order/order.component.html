@@ -1,0 +1,19 @@
+<div class="title">
+  <span class="id">Id</span>
+  <span class="products">Produkty</span>
+  <span class="status">Status</span>
+  <span class="price">Cena</span>
+  <span class="details">Szczegóły</span>
+</div>
+
+
+<div *ngFor="let order of orders">
+  <div class="order">
+    <span class="id">{{order.id}}</span>
+    <span class="products">{{order.dishIds}}</span>
+    <span class="status">{{order.status}}</span>
+    <span class="price">{{order.price}}</span>
+    <span class="details"><div class="myButton" routerLink="/orders/detail/{{order.id}}">szczegóły</div></span>
+  </div>
+</div>
+

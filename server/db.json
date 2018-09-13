@@ -1,0 +1,342 @@
+{
+  "dishes": [
+    {
+      "id": 1,
+      "name": "Pizza Margherita",
+      "isAvailable": true,
+      "description": "Sos, ser",
+      "type": "pizza",
+      "price": "22"
+    },
+    {
+      "id": 2,
+      "name": "Pizza Funghi",
+      "isAvailable": true,
+      "description": "Sos, ser, pieczarki",
+      "type": "pizza",
+      "price": "23.50"
+    },
+    {
+      "id": 3,
+      "name": "Kebeb w bułce",
+      "isAvailable": true,
+      "description": "Chrupiąca bułka z dodatkiem kebabu drobiowego, kapusty pekińskiej, pomidora, ogórka zielonego",
+      "type": "fastfood",
+      "price": "13.90"
+    },
+    {
+      "id": 4,
+      "name": "Spagetti Bolognese",
+      "isAvailable": false,
+      "description": "Sos boloński",
+      "type": "spagetti",
+      "price": "14"
+    },
+    {
+      "id": 5,
+      "name": "Spagetti Siciliana",
+      "isAvailable": true,
+      "description": "Sos boloński z szynką i kukurydzą",
+      "type": "spagetti",
+      "price": "17.50"
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 6
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 7
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 8
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 9
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 10
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 11
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 12
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 13
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 14
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 15
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 16
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 17
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 18
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 19
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 20
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 21
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 22
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 23
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 24
+    },
+    {
+      "name": "taco",
+      "isAvailable": true,
+      "type": "fastfood",
+      "description": "pyszne taco ",
+      "price": 200,
+      "id": 25
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "dishIds": [
+        1,
+        5
+      ],
+      "status": "W realizacji"
+    },
+    {
+      "dishIds": [
+        2,
+        2,
+        2,
+        3
+      ],
+      "status": "Zamówienie złożone",
+      "customer": {},
+      "id": 2
+    },
+    {
+      "dishIds": [],
+      "status": "Zamówienie złożone",
+      "customer": {},
+      "id": 3
+    },
+    {
+      "dishIds": [],
+      "status": "Zamówienie złożone",
+      "customer": {},
+      "id": 4
+    },
+    {
+      "dishIds": [],
+      "status": "Zamówienie złożone",
+      "customer": {},
+      "id": 5
+    },
+    {
+      "dishIds": [
+        1,
+        2,
+        3
+      ],
+      "status": "Zamówienie złożone",
+      "customer": {},
+      "id": 6
+    },
+    {
+      "dishIds": [],
+      "status": "Zamówienie złożone",
+      "customer": {},
+      "id": 7
+    },
+    {
+      "dishIds": [],
+      "status": "Zamówienie złożone",
+      "customer": {},
+      "id": 8
+    },
+    {
+      "dishIds": [],
+      "status": "Zamówienie złożone",
+      "customer": {},
+      "id": 9
+    },
+    {
+      "dishIds": [
+        1,
+        8,
+        13
+      ],
+      "status": "Zamówienie złożone",
+      "customer": {},
+      "id": 10
+    },
+    {
+      "dishIds": [
+        1,
+        4,
+        5
+      ],
+      "status": "Zamówienie złożone",
+      "customer": {},
+      "price": 53.5,
+      "id": 11
+    },
+    {
+      "dishIds": [
+        3,
+        4
+      ],
+      "status": "Zamówienie złożone",
+      "customer": {},
+      "price": 27.9,
+      "id": 12
+    },
+    {
+      "date": "2018-09-13T09:05:29.803Z",
+      "dishIds": [
+        11,
+        4,
+        4
+      ],
+      "status": "Zamówienie złożone",
+      "customer": {},
+      "price": 228,
+      "id": 13
+    },
+    {
+      "date": "2018-09-13T09:06:53.844Z",
+      "dishIds": [
+        1,
+        5,
+        4,
+        3
+      ],
+      "status": "Zamówienie złożone",
+      "customer": {
+        "name": "Mateusz",
+        "surname": "asdfasdf",
+        "phone": "4326565",
+        "city": "dsfgsdfgsd",
+        "street": "sdfgfdsgds",
+        "hause": "fds",
+        "flatNumber": ""
+      },
+      "price": 67.4,
+      "id": 14
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "password": "admin"
+    }
+  ]
+}

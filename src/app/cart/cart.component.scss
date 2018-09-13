@@ -1,0 +1,54 @@
+.cart {
+  width: 200px;
+  background-color: gainsboro;
+  padding: 15px;
+
+}
+.dish {
+  display: flex;
+  justify-content: space-between;
+}
+.end {
+  justify-self: flex-end;
+}
+.confirm {
+  alignment: center;
+  background-color: saddlebrown;
+  margin-top: 10px;
+  color: #ffffff;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+#clear{
+  margin-top: 15px;
+  alignment: center;
+}
+
+.myButton {
+  -moz-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+  -webkit-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+  box-shadow:inset 0px 34px 0px -15px #b54b3a;
+  background-color:#a73f2d;
+  border:1px solid #241d13;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:15px;
+  font-weight:bold;
+  padding:9px 23px;
+  text-decoration:none;
+  text-shadow:0px -1px 0px #7a2a1d;
+
+
+  margin-top: 10px;
+
+}
+.myButton:hover {
+  background-color:#b34332;
+}
+.myButton:active {
+  position:relative;
+  top:1px;
+}

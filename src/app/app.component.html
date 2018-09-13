@@ -1,0 +1,28 @@
+<header>
+  <div class="header">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  </div>
+</header>
+<nav>
+  <div class="navbar">
+    <span>
+      <a class="myButton" (click)="navigateToMenu()">Menu</a>
+      <a *ngIf="authentication.canShow()" class="myButton" (click)="navigateToAdmin()">Admin</a>
+    </span>
+    <span >
+      <b id="welcome" *ngIf="authentication.currentUser">Witaj {{authentication.currentUser.name | uppercase }}!</b>
+      <a *ngIf="!authentication.canShow()" class="myButton login" routerLink="/login"><i class="fas fa-sign-in-alt"></i></a>
+      <a *ngIf="authentication.canShow()" class="myButton login" (click)="authentication.logout()" ><i class="fas fa-power-off"></i></a>
+    </span>
+  </div>
+</nav>
+<section class="content">
+  <router-outlet></router-outlet>
+</section>
+  <footer>
+<div class="footer">
+
+</div>
+  </footer>

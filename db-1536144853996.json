@@ -1,0 +1,60 @@
+{
+  "dishes": [
+    {
+      "id": 1,
+      "name": "Pizza Margherita",
+      "isAvailable": true,
+      "description": "Sos, ser",
+      "type": "pizza",
+      "price": "22"
+    },
+    {
+      "id": 2,
+      "name": "Pizza Funghi",
+      "isAvailable": true,
+      "description": "Sos, ser, pieczarki",
+      "type": "pizza",
+      "price": "23.50"
+    },
+    {
+      "id": 3,
+      "name": "Kebeb w bułce",
+      "isAvailable": true,
+      "description": "Chrupiąca bułka z dodatkiem kebabu drobiowego, kapusty pekińskiej, pomidora, ogórka zielonego",
+      "type": "fastfood",
+      "price": "13.90"
+    },
+    {
+      "id": 4,
+      "name": "Spagetti Bolognese",
+      "isAvailable": false,
+      "description": "Sos boloński",
+      "type": "spagetti",
+      "price": "14"
+    },
+    {
+      "id": 5,
+      "name": "Spagetti Siciliana",
+      "isAvailable": true,
+      "description": "Sos boloński z szynką i kukurydzą",
+      "type": "spagetti",
+      "price": "17.50"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "dishIds": [
+        1,
+        5
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "password": "admin"
+    }
+  ]
+}

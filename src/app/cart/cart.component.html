@@ -1,0 +1,14 @@
+<div class="cart" *ngIf="cartService.products.length">
+
+  <h2>Twoje zamówienie</h2>
+  <h3>Produkty:</h3>
+  <div class="dish" *ngFor="let dish of cartService.products"><span class="name">{{dish.name}}</span><span class="price end">{{dish.price}} <i class="fas fa-times-circle" (click)="cartService.deleteDish()"></i></span></div>
+  <button id="clear" (click)="cartService.clear()">Wyczyść listę</button>
+
+  <br>
+  <br>
+  <div> Razem: {{cartService.getSum()}}</div>
+  <div class="myButton" routerLink="/confirm">Potwierdź</div>
+</div>
+
+

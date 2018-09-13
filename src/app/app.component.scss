@@ -1,0 +1,75 @@
+.header {
+  height: 150px;
+  padding: 10px 16px;
+  color: #f1f1f1;
+  background: #555 url("http://www.camion-pizza-hyeres.com/wp-content/uploads/2014/09/pizza300.jpg");
+}
+  .navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: saddlebrown;
+
+}
+  .content{
+    margin-top: 15px;
+  }
+
+.footer {
+  height: 100px;
+  margin-top: 15px;
+  background-color: forestgreen;
+}
+
+nav div {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
+}
+
+.myButton {
+  -moz-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+  -webkit-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+  box-shadow:inset 0px 34px 0px -15px #b54b3a;
+  background-color:#a73f2d;
+  border:1px solid #241d13;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:15px;
+  font-weight:bold;
+  padding:9px 23px;
+  text-decoration:none;
+  text-shadow:0px -1px 0px #7a2a1d;
+}
+.myButton:hover {
+  background-color:#b34332;
+}
+.myButton:active {
+  position:relative;
+  top:1px;
+}
+
+#welcome {
+  position: relative;
+  right: 15px;
+  color: white;
+}
