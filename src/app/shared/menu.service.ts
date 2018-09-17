@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Dish} from './dish';
 import {observableToBeFn} from 'rxjs/internal/testing/TestScheduler';
@@ -14,18 +14,19 @@ export class MenuService {
   dishes$ = new Subject<Dish[]>();
 
 
-get(url: string) {
-  if (this.authservice.canShow()) {
-    this.httpClient.get<Dish[]>(url).subscribe(dishes => this.dishes$.next(dishes));
-  } else {
-    this.httpClient.get<Dish[]>(url, {params: { isAvailable: 'true'}})
-      .subscribe(dishes => this.dishes$.next(dishes));
+  get(url: string) {
+    if (this.authservice.canShow()) {
+      this.httpClient.get<Dish[]>(url).subscribe(dishes => this.dishes$.next(dishes));
+    } else {
+      this.httpClient.get<Dish[]>(url, {params: {isAvailable: 'true'}})
+        .subscribe(dishes => this.dishes$.next(dishes));
+    }
   }
-}
 
- getDishes() {
-  this.get('http://localhost:3000/dishes');
-}
+  getDishes() {
+    this.get('http://localhost:3000/dishes');
+  }
+
   getPastas() {
     this.get('http://localhost:3000/dishes?type=spagetti');
   }
@@ -37,11 +38,19 @@ get(url: string) {
   getDrinks() {
     this.get('http://localhost:3000/dishes?type=drink');
   }
-getDishById(id: number): Observable<Dish> {
-   return this.httpClient.get<Dish>(`http://localhost:3000/dishes/${id}`);
-}
-newDish(dish: Dish): void {
-   this.httpClient.post(  'http://localhost:3000/dishes', dish).subscribe(res => this.getDishes());
-}
-  constructor(private httpClient: HttpClient, private authservice: AuthGrandService ) {}
+
+  getDishById(id: number): Observable<Dish> {
+    return this.httpClient.get<Dish>(`http://localhost:3000/dishes/${id}`);
+  }
+
+  updateDish(dish: Dish): void {
+    this.httpClient.put(`http://localhost:3000/dishes/${dish.id}`, dish).subscribe(res => this.getDishes());
+  }
+  newDish(dish: Dish): void {
+    this.httpClient.post('http://localhost:3000/dishes', dish).subscribe(res => this.getDishes());
+  }
+
+  constructor(private readonly httpClient: HttpClient,
+              private readonly authservice: AuthGrandService) {
+  }
 }

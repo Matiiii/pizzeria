@@ -12,18 +12,6 @@ import {AuthGrandService} from './shared/auth-grand.service';
 export class AppComponent {
   title = 'pizzeria';
 
-
-  // header = document.getElementById('myHeader');
-  // sticky = this.header.offsetTop;
-  //
-  // myFunction() {
-  //   if (window.pageYOffset > this.sticky) {
-  //     this.header.classList.add('sticky');
-  //   } else {
-  //     this.header.classList.remove('sticky');
-  //   }
-  // }
-
   navigateToMenu() {
     this.menuService.getDishes();
     this.router.navigate(['/menu']);
@@ -32,6 +20,10 @@ export class AppComponent {
   navigateToAdmin() {
     this.menuService.getDishes();
     this.router.navigate(['/admin']);
+  }
+  navigateToAddDish() {
+    this.menuService.getDishes();
+    this.router.navigate(['/addDish']);
   }
 
   constructor(private menuService: MenuService, public authentication: AuthGrandService, private  router: Router) {

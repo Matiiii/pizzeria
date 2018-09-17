@@ -4,14 +4,15 @@
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
       <input type="text" placeholder="username" formControlName="login"/>
       <div *ngIf="submitted && f.login.errors" class="invalid-feedback">
-        <div *ngIf="f.login.errors.required">First Name is required</div>
+        <div *ngIf="f.login.errors.required">Login jest wymagany</div>
       </div>
       <input type="password" placeholder="password" formControlName="password"/>
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-          <div *ngIf="f.password.errors.required">First Name is required</div>
-          <div *ngIf="f.password.errors.minlength">Password must be at least 4 characters</div>
+          <div *ngIf="f.password.errors.required">Hasło jest wymagane</div>
+          <div *ngIf="f.password.errors.minlength">hasło musi mieć conajmniej 4 znaki</div>
         </div>
       <button type="submit">login</button>
+          <div *ngIf="error">{{error}}</div>
     </form>
   </div>
 </div>

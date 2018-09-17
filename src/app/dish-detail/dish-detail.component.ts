@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Subject} from 'rxjs';
 import {takeUntil, timeout} from 'rxjs/operators';
 import {Location} from '@angular/common';
+import {AuthGrandService} from '../shared/auth-grand.service';
 
 @Component({
   selector: 'app-dish-detail',
@@ -21,12 +22,18 @@ export class DishDetailComponent implements OnInit, OnDestroy {
     console.log(id);
     this.menuService.getDishById(id).pipe(takeUntil(this.destroy$)).subscribe(dish => this.dish = dish);
   }
+  save() {
+    this.menuService.updateDish(this.dish);
+  }
   goBack() {
     this.location.back();
   }
 
 
-  constructor(private location: Location, private activatedRoute: ActivatedRoute, private menuService: MenuService) { }
+  constructor(private readonly location: Location,
+              private readonly activatedRoute: ActivatedRoute,
+              public readonly authentication: AuthGrandService,
+              private readonly menuService: MenuService) { }
 
   ngOnInit() {
     this.getDish();

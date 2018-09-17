@@ -9,7 +9,8 @@
   <div class="navbar">
     <span>
       <a class="myButton" (click)="navigateToMenu()">Menu</a>
-      <a *ngIf="authentication.canShow()" class="myButton" (click)="navigateToAdmin()">Admin</a>
+      <a *ngIf="authentication.canShow()" class="myButton" (click)="navigateToAdmin()">Zamówienia</a>
+      <a *ngIf="authentication.canShow()" class="myButton" (click)="navigateToAddDish()">Dodaj danie</a>
     </span>
     <span >
       <b id="welcome" *ngIf="authentication.currentUser">Witaj {{authentication.currentUser.name | uppercase }}!</b>

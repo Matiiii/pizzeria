@@ -1,38 +1,43 @@
 <div class="content">
 
   <app-cart></app-cart>
-  <div class="form"  >
-    <form [formGroup]="customerForm" (ngSubmit)="onSubmit()" class="login-form">
-      <input type="text" placeholder="imię" formControlName="name"/>
+
+
+  <div class="login-page">
+    <div class="form">
+      <form [formGroup]="customerForm" (ngSubmit)="onSubmit()" class="login-form">
+        <input type="text" placeholder="imię" formControlName="name"/>
         <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-        <div *ngIf="f.name.errors.required">To pole jest obowiązkowe</div>
-      </div>
-      <input type="text" placeholder="nazwisko" formControlName="surname"/>
-      <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
-        <div *ngIf="f.surname.errors.required">To pole jest obowiązkowe</div>
-        <div *ngIf="f.surname.errors.minlength">Coś krótkie to nazwisko</div>
-      </div>
-      <input type="tel" placeholder="telefon" formControlName="phone"/>
-      <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
-        <div *ngIf="f.phone.errors.required">Boisz sie podać numer... Boimy się, że nie odbierzesz</div>
-      </div>
-      <input type="text" placeholder="miasto" formControlName="city"/>
-      <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
-        <div *ngIf="f.city.errors.required">To pole jest obowiązkowe</div>
-        <div *ngIf="f.city.errors.minlength">Password must be at least 4 characters</div>
-      </div>
-      <input type="text" placeholder="ulica" formControlName="street"/>
-      <div *ngIf="submitted && f.street.errors" class="invalid-feedback">
-        <div *ngIf="f.street.errors.required">To pole jest obowiązkowe</div>
-        <div *ngIf="f.street.errors.minlength">Password must be at least 4 characters</div>
-      </div>
-      <input type="text" placeholder="nr domu" formControlName="hause"/>
-      <div *ngIf="submitted && f.hause.errors" class="invalid-feedback">
-        <div *ngIf="f.hause.errors.required">To pole jest obowiązkowe</div>
-        <div *ngIf="f.hause.errors.minlength">Password must be at least 4 characters</div>
-      </div>
-      <input type="text" placeholder="nr mieszkania" formControlName="flatNumber"/>
-      <button class="confirm" type="submit">Zamów</button>
-    </form>
+          <div class="error" *ngIf="f.name.errors.required">To pole jest obowiązkowe</div>
+        </div>
+        <input type="text" placeholder="nazwisko" formControlName="surname"/>
+        <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+          <div class="error"  *ngIf="f.surname.errors.required">To pole jest obowiązkowe</div>
+          <div  class="error" *ngIf="f.surname.errors.minlength">Coś krótkie to nazwisko</div>
+        </div>
+        <input type="tel" placeholder="telefon" formControlName="phone"/>
+        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+          <div  class="error" *ngIf="f.phone.errors.required">Boisz sie podać numer... Boimy się, że nie odbierzesz</div>
+        </div>
+        <input type="text" placeholder="miasto" formControlName="city"/>
+        <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+          <div  class="error" *ngIf="f.city.errors.required">To pole jest obowiązkowe</div>
+          <div  class="error" *ngIf="f.city.errors.minlength">Password must be at least 4 characters</div>
+        </div>
+        <input type="text" placeholder="ulica" formControlName="street"/>
+        <div *ngIf="submitted && f.street.errors" class="invalid-feedback">
+          <div class="error"  *ngIf="f.street.errors.required">To pole jest obowiązkowe</div>
+          <div  class="error" *ngIf="f.street.errors.minlength">Password must be at least 4 characters</div>
+        </div>
+        <input type="text" placeholder="nr domu" formControlName="hause"/>
+        <div  class="error" *ngIf="submitted && f.hause.errors" class="invalid-feedback">
+          <div  class="error" *ngIf="f.hause.errors.required">To pole jest obowiązkowe</div>
+          <div class="error"  *ngIf="f.hause.errors.minlength">Password must be at least 4 characters</div>
+        </div>
+        <input type="text" placeholder="nr mieszkania" formControlName="flatNumber"/>
+        <button class="confirm" type="submit" [ngClass]="{ 'deactive': !isCart }">Zamów</button>
+        <div  class="error" *ngIf="!isCart"> Koszyk nie może być pusty!</div>
+      </form>
+    </div>
   </div>
 </div>

@@ -5,26 +5,27 @@
   <div class="nav-item myButton" (click)="getDrinks()">Napoje</div>
 </div>
 
-
-<div class="title">
-  <span class="id">Id</span>
-  <span class="name">Nazwa</span>
-  <span class="type">Typ</span>
-  <span class="description">Opis</span>
-  <span class="price">Cena</span>
-</div>
-
-
-<div *ngFor="let dish of dishes">
-  <div class="product">
-    <span class="id">{{dish.id}}</span>
-    <span class="name">{{dish.name}}</span>
-    <span class="type">{{dish.type}}</span>
-    <span class="description">{{dish.description}}</span>
-    <span class="price">{{dish.price}}</span>
-    <span class="add"><a (click)="addDishToCart(dish)"><i class="fas fa-plus"></i></a></span>
-    <span class="add"><i class="fas fa-info-circle" routerLink="/dish/detail/{{dish.id}}"></i></span>
+<div class="table">
+  <div class="title">
+    <span class="name">Nazwa</span>
+    <span class="description">Opis</span>
+    <span class="price">Cena</span>
+    <span></span>
   </div>
 
+  <div *ngFor="let dish of dishes">
+    <div class="product">
+      <span class="name">{{dish.name}}</span>
+      <span class="description">{{dish.description}}</span>
+      <span class="price">{{dish.price}}</span>
+      <span class="add">
+        <a (click)="addDishToCart(dish)"><i class="fas fa-plus"></i></a>
+        <i class="fas fa-info-circle" routerLink="/dish/detail/{{dish.id}}"></i>
+      </span>
+    </div>
+
+  </div>
 </div>
-<button (click)="addDish()">Add new dish</button><button routerLink="/orders/detail/12">routing</button>
+<button (click)="addDish()">Add new dish</button>
+<button routerLink="/orders/detail/12">routing</button>
+<button (click)="navigateTo()" routerLink="/orders/detail/12">routing</button>

@@ -59,22 +59,20 @@ export class AuthGrandService implements CanActivate, OnDestroy {
   }
 
   canShow(): boolean {
-    return this.currentUser ? true : false;
+    return !!this.currentUser;
   }
-
+  isMyOrder(): boolean {
+    const id = this.activatedRoute.snapshot.root.children.pop().paramMap.get('id');
+    const sesOrderId = sessionStorage.getItem('orderId');
+    return (id.toString() === sesOrderId);
+  }
   canActivate(): boolean {
 
-    const isLogged = this.currentUser ? true : false;
+    const isLogged = !!this.currentUser;
 
     if (isLogged) {
       return true;
     } else {
-      const pathRoute = this.activatedRoute.snapshot.url;
-      const id = +this.activatedRoute.snapshot.paramMap.get('id');
-      console.log(id);
-      if ((pathRoute.map(url => url.path)[0] === 'orders')) {
-        console.log('return true');
-      }
       this.router.navigate(['/login']);
     }
   }

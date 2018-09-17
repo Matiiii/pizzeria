@@ -9,16 +9,17 @@ import {ConfirmComponent} from './confirm/confirm.component';
 import {AuthGrandService} from './shared/auth-grand.service';
 import {LoginComponent} from './login/login.component';
 import {OrderDetailComponent} from './order-detail/order-detail.component';
+import {AddDishComponent} from './add-dish/add-dish.component';
 
 const routes: Routes = [
   {path: 'menu',  component: CustomerComponent},
   {path: 'admin', canActivate: [AuthGrandService], component: AdminComponent},
   {path: 'login', component: LoginComponent},
   {path: '', component: CustomerComponent},
-  // {path: '**', component: CustomerComponent},
   {path: 'dish/detail/:id', component: DishDetailComponent},
-  {path: 'orders/detail/:id', canActivate: [AuthGrandService], component: OrderDetailComponent},
+  {path: 'orders/detail/:id', component: OrderDetailComponent},
   {path: 'confirm', component: ConfirmComponent},
+  {path: 'addDish', canActivate: [AuthGrandService], component: AddDishComponent},
 ];
 
 

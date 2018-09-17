@@ -18,6 +18,7 @@ import {User} from '../shared/user';
 export class LoginComponent implements OnInit {
 
   submitted = false;
+  error: string;
 
   loginForm: FormGroup;
 

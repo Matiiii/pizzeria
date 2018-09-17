@@ -19,6 +19,6 @@ export class UserService {
   }
 
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private readonly httpClient: HttpClient) {
   }
 }

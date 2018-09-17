@@ -1,0 +1,32 @@
+
+  <h2> Dodaj danie</h2>
+  <div>
+    <label>Nazwa:
+      <input [(ngModel)]="dish.name" placeholder="name"/>
+    </label>
+  </div>
+  <div>
+    <label>Typ:
+      <select [(ngModel)]="dish.type" placeholder="type">
+        <option>pizza</option>
+        <option>pasta</option>
+        <option>drink</option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label>Opis:
+      <br>
+      <textarea  id="description" [(ngModel)]="dish.description" placeholder="name"></textarea>
+    </label>
+  </div>
+  <div>
+    <label>Cena:
+      <input type="number" step="0.01" [(ngModel)]="dish.price" placeholder="price"/>
+    </label>
+  </div>
+  <div>Dostępność:
+    <span *ngIf="dish.isAvailable" class="available true pointer" (click)="dish.isAvailable=false"> Dostępny <i  class="far fa-calendar-check"></i></span>
+    <span *ngIf="!dish.isAvailable" class="available false pointer" (click)="dish.isAvailable=true">Niedostępny <i  class="far fa-calendar-times"></i></span>
+  </div>
+  <button (click)="addDish()">Dodaj danie</button>

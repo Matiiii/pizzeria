@@ -1,12 +1,72 @@
-<div *ngIf="order">
-  <h2>{{order.id | uppercase }} Details</h2>
-  <div> <span>id : {{order.id}}</span></div>
-
-  <div>
-    <label>name:
-      <input  placeholder="name">
-    </label>
-  </div>
+<div id="goBack" (click)="goBack()"><i class="fas fa-arrow-alt-circle-left"></i></div>
+<div class="content" *ngIf="!order">
+  <h1>Nie znaleziono takiego zamówienia!</h1>
 </div>
 
-<button (click)="goBack()">go back</button>
+<div class="content" *ngIf="order">
+  <div *ngIf="(!authentication.canShow())&&(!authentication.isMyOrder())">
+    <h1> Nie masz uprawnień by zobaczyć to zamówienie</h1>
+  </div>
+  <div *ngIf="(authentication.canShow())||(authentication.isMyOrder())">
+
+    <h1>Zamówienie nr: {{order.id}}</h1>
+    Dodano: {{getDate()}}
+    <a *ngIf="authentication.canShow()" class="delete" (click)="confirm()"><i class="fas fa-trash"></i></a>
+
+    <h2>Produkty: </h2>
+    <div class="box">
+      <div class="title">
+        <span class="id">Id</span>
+        <span class="name">Nazwa</span>
+        <span class="type">Typ</span>
+        <span class="price">Cena</span>
+      </div>
+
+      <div *ngFor="let dish of dishes">
+        <div class="product">
+          <span class="id">{{dish.id}}</span>
+          <span class="name">{{dish.name}}</span>
+          <span class="type">{{dish.type}}</span>
+          <span class="price">
+            <span>{{dish.price}}</span>
+            <span><i class="fas fa-info-circle" routerLink="/dish/detail/{{dish.id}}"></i></span>
+          </span>
+        </div>
+      </div>
+      <div class="totalPrice">Łączna kwota: <b>{{order.price}} zł</b></div>
+    </div>
+
+    <h2> Dane klienta: </h2>
+
+    <div class="customer" *ngIf="order.customer != undefined">
+
+      <div><b>{{order.customer.name}} {{order.customer.surname}}</b></div>
+      <div class="address">
+        <span><b>{{order.customer.city}}</b>,</span>
+        <span>ulica <b>{{order.customer.street}}</b></span>
+        <span><b>{{order.customer.hause}}</b></span>
+        <span>/<b>{{order.customer.flatNumber}}</b></span>
+      </div>
+      <div>Telefon: <b>{{order.customer.phone}}</b></div>
+    </div>
+
+    <div>
+     <span><h2>Aktualny status:
+       <span id="actualStatus">{{order.status}}</span></h2></span>
+    </div>
+
+    <div *ngIf="authentication.canShow()">
+
+      <h3>Zmień status:</h3>
+      <div class="status">
+        <a class="myButton" (click)="changeStatusToProcessing()">Oczekuje na przyjęcie</a>
+        <a class="myButton" (click)="changeStatusToInRealization()">W realizacji</a>
+        <a class="myButton" (click)="changeStatusToInDelivery()">W dostarczeniu</a>
+        <a class="myButton" (click)="changeStatusToCompleted()">Dostarczone</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+

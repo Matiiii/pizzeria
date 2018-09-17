@@ -6,6 +6,8 @@ import {OrderService} from '../shared/order.service';
 import {Router} from '@angular/router';
 import {CartService} from '../shared/cart.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Observable, Subject} from 'rxjs';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-confirm',
@@ -21,7 +23,7 @@ export class ConfirmComponent implements OnInit {
 
   customerForm: FormGroup;
   submitted = false;
-
+  isCart = (!!localStorage.getItem('basket')) ? JSON.parse(localStorage.getItem('basket')).length > 0 : false ;
 
   // convenience getter for easy access to form fields
   get f() {
@@ -36,17 +38,25 @@ export class ConfirmComponent implements OnInit {
 
   saveOrder() {
     this.dishes = (JSON.parse(localStorage.getItem('basket') ? localStorage.getItem('basket') : '[]') as Dish[]);
-
+    if (this.dishes.length < 1) {
+      alert('Koszyk nie może by pusty!')
+      this.router.navigate(['/menu']);
+      return ;
+    }
     this.dishesIds = this.dishes.map(dish => dish.id);
     this.order.dishIds = this.dishesIds;
-    this.order.status = 'Zamówienie złożone';
+    this.order.status = 'Oczekuje na przyjęcie';
     this.order.customer = this.customer;
     this.order.price = parseFloat(this.cartService.getSum());
-    this.orderService.newOrder(this.order);
     localStorage.removeItem('basket');
+    this.orderService.newOrder(this.order).subscribe( () =>
+
+      this.router.navigate(['/orders/detail/' + sessionStorage.getItem('orderId')])
+    );
+
   }
   onSubmit() {
-
+    this.submitted = true;
     this.customer.name = this.customerForm.get('name').value;
     this.customer.surname = this.customerForm.get('surname').value;
     this.customer.phone = this.customerForm.get('phone').value;
@@ -54,10 +64,14 @@ export class ConfirmComponent implements OnInit {
     this.customer.street = this.customerForm.get('street').value;
     this.customer.hause = this.customerForm.get('hause').value;
     this.customer.flatNumber = this.customerForm.get('flatNumber').value;
-    this.order.date = new Date();
+    this.order.date = moment().format('YYYY-MM-DD HH:mm');
+
+    if (this.customerForm.invalid) {
+      return;
+    }
 
     this.saveOrder();
-    console.log(this.customer.surname);
+
   }
 
   ngOnInit() {

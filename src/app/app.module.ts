@@ -15,6 +15,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { LoginComponent } from './login/login.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { AddDishComponent } from './add-dish/add-dish.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +29,15 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     CartComponent,
     ConfirmComponent,
     LoginComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    AddDishComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

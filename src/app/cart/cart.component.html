@@ -2,13 +2,18 @@
 
   <h2>Twoje zamówienie</h2>
   <h3>Produkty:</h3>
-  <div class="dish" *ngFor="let dish of cartService.products"><span class="name">{{dish.name}}</span><span class="price end">{{dish.price}} <i class="fas fa-times-circle" (click)="cartService.deleteDish()"></i></span></div>
-  <button id="clear" (click)="cartService.clear()">Wyczyść listę</button>
+  <div class="dish" *ngFor="let dish of cartService.products">
+    <span class="name">{{dish.name}}</span>
+    <span class="price end">{{dish.price}} <i class="fas fa-times-circle" (click)="cartService.deleteDish(dish)"></i></span>
+  </div>
+
 
   <br>
   <br>
   <div> Razem: {{cartService.getSum()}}</div>
+
   <div class="myButton" routerLink="/confirm">Potwierdź</div>
+  <div id="clear" (click)="cartService.clear()"><i class="fas fa-trash"></i></div>
 </div>
 
 

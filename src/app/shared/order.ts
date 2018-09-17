@@ -6,5 +6,5 @@ export interface Order {
   customer?: Customer;
   price?: number;
   status?: string;
-  date: Date;
+  date: string;
 }

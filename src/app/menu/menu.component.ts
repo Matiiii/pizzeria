@@ -29,12 +29,9 @@ export class MenuComponent implements OnInit, OnDestroy {
   };
 
   navigateTo(dishId: number) {
-    this.router.navigate(['/menu', dishId]);
+    this.router.navigate(['/dish/detail/' + dishId ]);
   }
 
-  addDish(): void {
-    this.menuService.newDish(this.taco);
-  }
 
   getPastas(): void {
     this.menuService.getPastas();
@@ -56,8 +53,9 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.cartService.add(dish);
   }
 
-  constructor(private cartService: CartService, private menuService: MenuService, private router: Router) {
-  }
+  constructor(private readonly cartService: CartService,
+              private readonly menuService: MenuService,
+              private readonly router: Router) { }
 
   ngOnInit() {
     this.getDishes();
@@ -68,6 +66,4 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
-
-
 }

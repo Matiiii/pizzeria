@@ -1,0 +1,110 @@
+.box {
+  width: 100%;
+}
+.title{
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  background-color: forestgreen;
+  color: #ffffff;
+}
+.delete {
+  float: right;
+  font-size: 50px;
+  color: #b34332;
+}
+.product{
+  display: flex;
+  justify-content: space-between;
+  background-color: honeydew;
+  border-bottom-style: dotted;
+  border-color: forestgreen;
+  border-width: thin;
+}
+.fa-arrow-alt-circle-left {
+   color: #b34332;
+  font-size: 24px;
+ }
+.fa-arrow-alt-circle-left:hover {
+  color: #b34332;
+  font-size: 28px;
+  transition-duration: 500ms;
+}
+#goBack {
+  float: left;
+
+}
+#goBack:hover {
+
+
+}
+.totalPrice{
+  font-size: 20px;
+  color: #b34332;
+  text-align: right;
+}
+.address span{
+margin-right: 5px;
+}
+.status {
+  display: flex;
+  justify-content: space-between;
+}
+#actualStatus {
+  color: #b34332;
+  margin-right: 20px;
+}
+span {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.id {
+  width: 2%;
+}
+.name {
+  width: 15%;
+}
+.type {
+  width: 10%;
+}
+.description {
+  width: 50%;
+}
+.price {
+  display: flex;
+  justify-content: space-between;
+  width: 10%
+}
+.nav-menu {
+  display: flex;
+  justify-content: space-around;
+}
+.content {
+  margin-left: 10%;
+  width: 80%;
+
+}
+.myButton {
+  -moz-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+  -webkit-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+  box-shadow:inset 0px 34px 0px -15px #b54b3a;
+  background-color:#a73f2d;
+  border:1px solid #241d13;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:15px;
+  font-weight:bold;
+  padding:9px 23px;
+  text-decoration:none;
+  text-shadow:0px -1px 0px #7a2a1d;
+}
+.myButton:hover {
+  background-color:#b34332;
+}
+.myButton:active {
+  position:relative;
+  top:1px;
+}
