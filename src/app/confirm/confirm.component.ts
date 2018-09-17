@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Order} from '../shared/order';
 import {Dish} from '../shared/dish';
 import {Customer} from '../shared/customer';
@@ -8,18 +8,20 @@ import {CartService} from '../shared/cart.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Observable, Subject} from 'rxjs';
 import * as moment from 'moment';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-confirm',
   templateUrl: './confirm.component.html',
   styleUrls: ['./confirm.component.scss']
 })
-export class ConfirmComponent implements OnInit {
+export class ConfirmComponent implements OnInit, OnDestroy {
 
   customer: Customer = {} as Customer;
   order: Order = {} as Order;
   dishes: Dish[] = [];
   dishesIds: number[] = [];
+  private  destroy$: Subject<void> = new Subject<void>();
 
   customerForm: FormGroup;
   submitted = false;
@@ -39,7 +41,7 @@ export class ConfirmComponent implements OnInit {
   saveOrder() {
     this.dishes = (JSON.parse(localStorage.getItem('basket') ? localStorage.getItem('basket') : '[]') as Dish[]);
     if (this.dishes.length < 1) {
-      alert('Koszyk nie może by pusty!')
+      alert('Koszyk nie może by pusty!');
       this.router.navigate(['/menu']);
       return ;
     }
@@ -49,7 +51,7 @@ export class ConfirmComponent implements OnInit {
     this.order.customer = this.customer;
     this.order.price = parseFloat(this.cartService.getSum());
     localStorage.removeItem('basket');
-    this.orderService.newOrder(this.order).subscribe( () =>
+    this.orderService.newOrder(this.order).pipe(takeUntil(this.destroy$)).subscribe( () =>
 
       this.router.navigate(['/orders/detail/' + sessionStorage.getItem('orderId')])
     );
@@ -113,5 +115,8 @@ export class ConfirmComponent implements OnInit {
         ]],
     });
   }
-
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }

@@ -38,13 +38,17 @@ export class LoginComponent implements OnInit {
     }
 
     this.login(this.loginForm.get('login').value, this.loginForm.get('password').value);
+    setTimeout(() => {this.error = sessionStorage.getItem('errorLogin'); } , 1000);
   }
   login(name: string, password: string) {
     this.authenticationService.login(name, password);
     this.navigateToAdmin();
   }
 
-  constructor(private userService: UserService, private authenticationService: AuthGrandService, private router: Router, private formBuilder: FormBuilder) {
+  constructor(private readonly userService: UserService,
+              private readonly authenticationService: AuthGrandService,
+              private readonly router: Router,
+              private readonly formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {

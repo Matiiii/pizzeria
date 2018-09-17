@@ -6,7 +6,7 @@
       "isAvailable": true,
       "description": "Klasyka z prawdziwym włoskim serem mozzarella Galbani i oryginalnym sosem pomidorowym Domino's.",
       "type": "pizza",
-      "price": "22"
+      "price": 22.03
     },
     {
       "id": 2,
@@ -402,6 +402,45 @@
       },
       "price": 67.5,
       "id": 26
+    },
+    {
+      "date": "2018-09-17 17:03",
+      "dishIds": [
+        1,
+        2
+      ],
+      "status": "Oczekuje na przyjęcie",
+      "customer": {
+        "name": "fdsgfds",
+        "surname": "fdsgsfd",
+        "phone": "gsfdgsdfgs",
+        "city": "dfgsdfgsdf",
+        "street": "gfdsgsfdg",
+        "hause": "fdsgdsf",
+        "flatNumber": ""
+      },
+      "price": 45.53,
+      "id": 27
+    },
+    {
+      "date": "2018-09-17 17:17",
+      "dishIds": [
+        1,
+        2,
+        3
+      ],
+      "status": "Oczekuje na przyjęcie",
+      "customer": {
+        "name": "sadf\\s",
+        "surname": "fdadsfsadf",
+        "phone": "sadfasdf",
+        "city": "dsafsa",
+        "street": "fsadf",
+        "hause": "asf",
+        "flatNumber": ""
+      },
+      "price": 70.51,
+      "id": 28
     }
   ],
   "users": [

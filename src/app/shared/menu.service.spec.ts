@@ -5,14 +5,12 @@ import {HttpClientTestingModule, HttpTestingController} from '@angular/common/ht
 import {RouterTestingModule} from '@angular/router/testing';
 import {Dish} from './dish';
 import {AuthGrandService} from './auth-grand.service';
-import {Subject} from 'rxjs';
-import {CartService} from './cart.service';
-import {Router} from '@angular/router';
+
 
 describe('MenuService', () => {
   let service: MenuService;
   let authService: AuthGrandService;
-
+  let mockBackend: HttpTestingController;
 
   const mockedDish: Dish = {
     id: 100,
@@ -22,6 +20,7 @@ describe('MenuService', () => {
     description: 'pyszne taco ',
     price: 20,
   };
+
   const mockedPizza1: Dish = {
     id: 1,
     name: 'mockedPizza1',
@@ -49,7 +48,6 @@ describe('MenuService', () => {
 
   const mockedDishes: Dish[] = [mockedPizza1, mockedPasta2, mockedPasta3];
 
-  let mockBackend: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -79,7 +77,7 @@ describe('MenuService', () => {
     expect(dish).toEqual(mockedDish);
 
   }));
-  it('should get mockedDishes ',
+  it('should get mockedDishes when is logged and use getPastas method',
     fakeAsync(() => {
 
       // given
@@ -94,7 +92,7 @@ describe('MenuService', () => {
       expect(dishes).toEqual(mockedDishes);
     }));
 
-  it('should get mockedDishes when ',
+  it('should get mockedDishes when and use getPastas method',
     fakeAsync(() => {
 
       // given
@@ -109,7 +107,7 @@ describe('MenuService', () => {
       expect(dishes).toEqual(mockedDishes);
     }));
 
-  it('should get mockedDishes when sdf',
+  it('should use http url',
     fakeAsync(() => {
 
       // given
@@ -121,6 +119,54 @@ describe('MenuService', () => {
       service.getDishes();
       mockBackend.expectOne('http://localhost:3000/dishes?isAvailable=true');
     }));
+  it('should use http url when logged and use getDishes method',
+    fakeAsync(() => {
+
+      // given
+      spyOn(authService, 'canShow').and.returnValue(true);
+      let dishes: Dish[];
+      service.dishes$.subscribe(res => dishes = res);
+
+      // when
+      service.getDishes();
+      mockBackend.expectOne('http://localhost:3000/dishes');
+    }));
+  it('should use http url when logged and use getDrinks method',
+    fakeAsync(() => {
+
+      // given
+      spyOn(authService, 'canShow').and.returnValue(true);
+      let dishes: Dish[];
+      service.dishes$.subscribe(res => dishes = res);
+
+      // when
+      service.getDrinks();
+      mockBackend.expectOne('http://localhost:3000/dishes?type=drink');
+    }));
+  it('should use this http url when not logged and use getDrinks method',
+    fakeAsync(() => {
+
+      // given
+      spyOn(authService, 'canShow').and.returnValue(false);
+      let dishes: Dish[];
+      service.dishes$.subscribe(res => dishes = res);
+
+      // when
+      service.getDrinks();
+      mockBackend.expectOne('http://localhost:3000/dishes?type=drink&isAvailable=true');
+    }));
+  it('should add dish when addDish', fakeAsync(() => {
+    // when
+    service.newDish(mockedDish);
+    const mockReq = mockBackend.expectOne('http://localhost:3000/dishes');
+    console.log(mockReq);
+
+    // then
+    expect(mockReq.request.body).toEqual(mockedDish);
+    expect(mockReq.request.method).toEqual('POST');
+
+  }));
+
 
 
 });

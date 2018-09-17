@@ -1,4 +1,4 @@
-import {ActivatedRoute, CanActivate, Router} from '@angular/router';
+import {ActivatedRoute, CanActivate, ParamMap, Router} from '@angular/router';
 import {Injectable, OnDestroy} from '@angular/core';
 import {User} from './user';
 import {UserService} from './user.service';
@@ -7,6 +7,7 @@ import {filter, first, map, take, takeUntil} from 'rxjs/operators';
 import {mapToMapExpression} from '@angular/compiler/src/render3/util';
 import {Dish} from './dish';
 import {MenuService} from './menu.service';
+import {LoginComponent} from '../login/login.component';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +16,10 @@ import {MenuService} from './menu.service';
 export class AuthGrandService implements CanActivate, OnDestroy {
 
 
-  constructor(private router: Router,
-              private userService: UserService,
-              private activatedRoute: ActivatedRoute,
-              ) {
+  constructor(private readonly router: Router,
+              private readonly userService: UserService,
+              private readonly activatedRoute: ActivatedRoute,
+  ) {
   }
 
   user: User;
@@ -26,7 +27,7 @@ export class AuthGrandService implements CanActivate, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
 
 
-  login(name: string, password: string) {
+  login(name: string, password: string): void {
     this.user = null;
     this.currentUser = null;
     sessionStorage.removeItem('currentUser');
@@ -38,15 +39,18 @@ export class AuthGrandService implements CanActivate, OnDestroy {
           if (this.user.password === password) {
             this.currentUser = this.user;
             sessionStorage.setItem('currentUser', JSON.stringify(this.user));
+            sessionStorage.removeItem('errorLogin');
             this.router.navigate(['/admin']);
           } else {
-            console.log('invalid password');
+            sessionStorage.setItem('errorLogin', 'Błędne hasło');
           }
         } else {
-          console.log('invalid login');
+          sessionStorage.setItem('errorLogin', 'Nie ma takiego użytkownika');
           this.currentUser = null;
         }
+
       });
+
 
 
   }
@@ -54,22 +58,23 @@ export class AuthGrandService implements CanActivate, OnDestroy {
   logout() {
     this.currentUser = null;
     sessionStorage.removeItem('currentUser');
-    // this.menuService.getDishes();
     this.router.navigate(['/menu']);
   }
 
   canShow(): boolean {
     return !!this.currentUser;
   }
+
   isMyOrder(): boolean {
-    const id = this.activatedRoute.snapshot.root.children.pop().paramMap.get('id');
+    const id = this.activatedRoute.snapshot.root.children[0].params.id;
+    // console.log(param);
+   // const id = this.activatedRoute.snapshot.root.children[0].paramMap.get('id');
     const sesOrderId = sessionStorage.getItem('orderId');
     return (id.toString() === sesOrderId);
   }
+
   canActivate(): boolean {
-
     const isLogged = !!this.currentUser;
-
     if (isLogged) {
       return true;
     } else {
