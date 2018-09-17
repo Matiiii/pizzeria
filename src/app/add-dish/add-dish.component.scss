@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#description {
+  height: 100px;
+  width: 200px;
+  resize: none;
+}
+
+.fa-arrow-alt-circle-left {
+  color: #b34332;
+  font-size: 24px;
+}
+
+.fa-arrow-alt-circle-left:hover {
+  color: #b34332;
+  font-size: 28px;
+  transition-duration: 500ms;
+}
+
+#goBack {
+  float: left;
+}
+
+.available {
+  font-stretch: extra-expanded;
+}
+
+.true {
+  color: #4CAF50;
+}
+.false {
+  color: #b34332;
+}
+
+.pointer {
+  cursor: pointer;
+
+}

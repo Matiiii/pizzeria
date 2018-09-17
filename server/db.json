@@ -161,44 +161,67 @@
       "id": 20
     },
     {
-      "name": "taco",
+      "name": "1L Coca Cola",
       "isAvailable": true,
-      "type": "fastfood",
-      "description": "pyszne taco ",
-      "price": 200,
+      "type": "drink",
+      "description": "Orzeźwiający napój - idealny na upalne dni!",
+      "price": 7,
       "id": 21
     },
     {
-      "name": "taco",
+      "name": "1L Sprite",
       "isAvailable": true,
-      "type": "fastfood",
-      "description": "pyszne taco ",
-      "price": 200,
+      "type": "drink",
+      "description": "Orzeźwiający napój - idealny na upalne dni!",
+      "price": 6,
       "id": 22
     },
     {
-      "name": "taco",
-      "isAvailable": true,
-      "type": "fastfood",
-      "description": "pyszne taco ",
-      "price": 200,
+      "name": "1L Fanta",
+      "isAvailable": false,
+      "type": "drink",
+      "description": "Orzeźwiający napój - idealny na upalne dni!",
+      "price": 6.5,
       "id": 23
     },
     {
-      "name": "taco",
+      "name": "1L Cappy Pomarańczowy",
       "isAvailable": true,
-      "type": "fastfood",
-      "description": "pyszne taco ",
-      "price": 200,
+      "type": "drink",
+      "description": "Pomarańcze soczyste słońcem zapewniają doskonały smak soku Cappy.",
+      "price": 8,
       "id": 24
     },
     {
-      "name": "taco",
+      "name": "1L Cappy Jabłkowy",
       "isAvailable": true,
-      "type": "fastfood",
-      "description": "pyszne taco ",
-      "price": 200,
+      "type": "drink",
+      "description": "Dojrzałe jabłka wygrzane w złotym słońcu zapewniają doskonały smak soku Cappy.",
+      "price": 6,
       "id": 25
+    },
+    {
+      "id": 26,
+      "name": "Spaghetti Bolognesse",
+      "description": "makaron z sosem bolońskim (około 600g)",
+      "type": "pasta",
+      "isAvailable": true,
+      "price": 13.5
+    },
+    {
+      "name": "Spaghetti Pomodoro",
+      "type": "pasta",
+      "description": "makaron z sosem śmietanowym, pomidorem, brokułami, cebulą i ziołami (około 600g)",
+      "price": 15,
+      "id": 27
+    },
+    {
+      "name": "Spaghetti Carbonara",
+      "description": "makaron z sosem śmietanowym, boczkiem, brokułami i cebulą (około 600g)",
+      "type": "pasta",
+      "price": 17,
+      "isAvailable": true,
+      "id": 28
     }
   ],
   "orders": [

@@ -28,7 +28,7 @@ export class MenuService {
   }
 
   getPastas() {
-    this.get('http://localhost:3000/dishes?type=spagetti');
+    this.get('http://localhost:3000/dishes?type=pasta');
   }
 
   getPizzas() {

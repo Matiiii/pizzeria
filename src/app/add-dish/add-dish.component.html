@@ -1,32 +1,51 @@
+<div id="goBack" (click)="goBack()"><i class="fas fa-arrow-alt-circle-left"></i></div>
+<div class="container">
+  <div>
+    <h2> Dodaj danie</h2>
+    <div>
+      <label>Nazwa:
+        <input [(ngModel)]="dish.name" placeholder="name"/>
+      </label>
+    </div>
+    <div>
+      <label>Typ:
+        <select [(ngModel)]="dish.type" placeholder="type">
+          <option>pizza</option>
+          <option>pasta</option>
+          <option>drink</option>
+        </select>
+      </label>
+    </div>
+    <div>
+      <label>Opis:
+        <br>
+        <textarea id="description" [(ngModel)]="dish.description" placeholder="name"></textarea>
+      </label>
+    </div>
+    <div>
+      <label>Cena:
+        <input type="number" step="0.01" [(ngModel)]="dish.price" placeholder="price"/>
+      </label>
+    </div>
+    <div>Dostępność:
+      <span *ngIf="dish.isAvailable" class="available true pointer" (click)="dish.isAvailable=false"> Dostępny <i
+        class="far fa-calendar-check"></i></span>
+      <span *ngIf="!dish.isAvailable" class="available false pointer" (click)="dish.isAvailable=true">Niedostępny <i
+        class="far fa-calendar-times"></i></span>
+    </div>
+    <button (click)="addDish(dish)">Dodaj danie</button>
+  </div>
 
-  <h2> Dodaj danie</h2>
-  <div>
-    <label>Nazwa:
-      <input [(ngModel)]="dish.name" placeholder="name"/>
-    </label>
+  <div class="content">
+    <h2>{{dish.name | uppercase }} </h2>
+    <div>typ: {{dish.type}}</div>
+    <div>Nazwa : {{dish.name}}</div>
+    <div>Dostępność:
+      <span *ngIf="dish.isAvailable" class="available true"> Dostępny <i class="far fa-calendar-check"></i></span>
+      <span *ngIf="!dish.isAvailable" class="available false">Niedostępny <i class="far fa-calendar-times"></i></span>
+    </div>
+    <div>Opis: {{dish.description}}</div>
+    <div>Cena: {{dish.price}}</div>
+
   </div>
-  <div>
-    <label>Typ:
-      <select [(ngModel)]="dish.type" placeholder="type">
-        <option>pizza</option>
-        <option>pasta</option>
-        <option>drink</option>
-      </select>
-    </label>
-  </div>
-  <div>
-    <label>Opis:
-      <br>
-      <textarea  id="description" [(ngModel)]="dish.description" placeholder="name"></textarea>
-    </label>
-  </div>
-  <div>
-    <label>Cena:
-      <input type="number" step="0.01" [(ngModel)]="dish.price" placeholder="price"/>
-    </label>
-  </div>
-  <div>Dostępność:
-    <span *ngIf="dish.isAvailable" class="available true pointer" (click)="dish.isAvailable=false"> Dostępny <i  class="far fa-calendar-check"></i></span>
-    <span *ngIf="!dish.isAvailable" class="available false pointer" (click)="dish.isAvailable=true">Niedostępny <i  class="far fa-calendar-times"></i></span>
-  </div>
-  <button (click)="addDish()">Dodaj danie</button>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Dish} from '../shared/dish';
 import {MenuService} from '../shared/menu.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-add-dish',
@@ -9,12 +10,16 @@ import {MenuService} from '../shared/menu.service';
 })
 export class AddDishComponent implements OnInit {
 
-  dish: Dish;
+  dish: Dish = {} as Dish;
 
   addDish(): void {
     this.menuService.newDish(this.dish);
   }
-  constructor(private readonly menuService: MenuService) { }
+  goBack() {
+    this.location.back();
+  }
+  constructor(private readonly menuService: MenuService,
+              private readonly location: Location) { }
 
   ngOnInit() {
   }
