@@ -26,7 +26,7 @@ export class CartService implements OnInit {
     localStorage.setItem('basket', JSON.stringify(this.products));
   }
 
-  getSum() {
+  getSum(): string {
     const tab = this.products.map(e => parseFloat(String(e.price)));
     return tab.reduce(function (previousValue, currentValue) {
       return (previousValue + currentValue);
